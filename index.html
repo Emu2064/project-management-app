@@ -10,9 +10,11 @@
   <body>
     <main>
       <section class="info-form">
+        <fieldset>
+            <legend>Product Info</legend>
         <div>
           <label for="id">ID</label>
-          <input type="number" name="id" id="id" placeholder="ID" />
+          <input type="number" name="id" id="id" placeholder="ID" required />
         </div>
         <br />
 
@@ -23,23 +25,35 @@
             name=""
             id="product-name"
             placeholder="Product Name"
+            required
           />
         </div>
         <br />
         <div>
           <label for="price">Price</label>
-          <input type="number" name="" id="price" placeholder="Price" />
+          <input
+            type="number"
+            name=""
+            id="price"
+            placeholder="Price"
+            required
+          />
         </div>
         <br />
-        <button onclick="getInputValue()">Add</button>
+        <div class="add-btn">
+            <button onclick="getInputValue()">Add</button>
+        </div>
       </section>
+    </fieldset>
 
-      <section>
-        <table>
-          <thead>
+      <section class="data-table">
+        <table id="product-data">
+          <thead class="table-header">
             <td>ID</td>
-            <td>Product Name</td>
+            <td>ProductName</td>
             <td>Price</td>
+            <td>Edit</td>
+            <td>Delete</td>
           </thead>
           <tbody id="product-item"></tbody>
         </table>

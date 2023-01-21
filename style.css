@@ -1,0 +1,39 @@
+/* google fonts plugins  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+}
+
+
+.add-btn{
+    display: flex;
+    justify-content: center;
+}
+
+.add-btn button{
+    width: 30%;
+    font-weight: 800;
+    cursor: pointer;
+    /* border-radius: 10px; */
+}
+
+/* style sheet for table */
+.data-table{
+    margin: 50px 0;
+}
+.data-table table{
+    border: 1px solid gray;
+    margin-left: auto;
+    margin-right: auto;
+}
+.data-table td{
+    padding: 10px 70px;
+    text-align: center;
+    border: 1px solid gray;
+}
+
+.table-header td{
+    font-weight: 800;
+}
