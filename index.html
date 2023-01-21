@@ -8,8 +8,43 @@
     <title>Project management app</title>
   </head>
   <body>
-    <h1>Hello there!!!</h1>
+    <main>
+      <section class="info-form">
+        <div>
+          <label for="id">ID</label>
+          <input type="number" name="id" id="id" placeholder="ID" />
+        </div>
+        <br />
 
+        <div>
+          <label for="product-name">Product Name</label>
+          <input
+            type="text"
+            name=""
+            id="product-name"
+            placeholder="Product Name"
+          />
+        </div>
+        <br />
+        <div>
+          <label for="price">Price</label>
+          <input type="number" name="" id="price" placeholder="Price" />
+        </div>
+        <br />
+        <button onclick="getInputValue()">Add</button>
+      </section>
+
+      <section>
+        <table>
+          <thead>
+            <td>ID</td>
+            <td>Product Name</td>
+            <td>Price</td>
+          </thead>
+          <tbody id="product-item"></tbody>
+        </table>
+      </section>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
