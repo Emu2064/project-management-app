@@ -23,10 +23,28 @@ function getInputValue(){
     productName.trim();
 
     // console.log(id,productName,price);
+    // validation for duplicate product id
     if(productId.includes(id)){
         alert('Duplicate entry!!!!');
         return;
     }
+    // validation for product name constraint
+    if (productName.length >60) {
+        alert('To long product Name!!! Change it');
+        return;
+    }
+
+    // validation for price
+    if (parseInt(price)>=0) {
+        if(parseInt(price)>100000){
+            alert('To high price');
+            return;
+        }
+    } else {
+        alert('Invalid price!!!');
+        return;
+    }
+    
     addItem(id,productName,price);
     productId.push(id);
 }
