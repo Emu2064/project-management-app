@@ -1,16 +1,30 @@
-
 function deleteItem() {
-    // document.getElementById('product-data').deleteRow(0);
-    let td = event.target.parentNode; 
-    let tr = td.parentNode; // the row to be removed
-    tr.parentNode.removeChild(tr);
+    const table = document.getElementById('product-data');
+    const deleteItem = document.getElementById('confirmDeleteBtn');
+    const cancelDelete = document.getElementById('cancelDeleteBtn');
+
+    table.addEventListener('click',function (event) {
+       if (event.target.classList.contains('delete-btn')) {
+            rowDelete = event.target.parentNode.parentNode;
+            document.querySelector('.delete-modal').style.display = 'block';
+       } 
+    });
+
+    deleteItem.addEventListener('click',function () {
+        rowDelete.remove();
+        document.querySelector('.delete-modal').style.display = 'none';
+    });
+
+    cancelDelete.addEventListener('click',function () {
+        document.querySelector('.delete-modal').style.display = 'none';
+    });
 }
 
 
 function addItem(id,name,price) {
     const singleItem = document.getElementById('product-item');
     const child = document.createElement('tr');
-    child.innerHTML = '<td>'+id+'</td><td>'+name+'</td><td>'+price+'</td><td>'+'<button>Edit</button>'+'</td><td>'+'<button onclick="deleteItem()">Delete</button>'+'</td>';
+    child.innerHTML = '<td>'+id+'</td><td>'+name+'</td><td>'+price+'</td><td>'+'<button>Edit</button>'+'</td><td>'+'<button class = "delete-btn" onclick="deleteItem()">Delete</button>'+'</td>';
     singleItem.appendChild(child);
 }
 
@@ -22,7 +36,6 @@ function getInputValue(){
     const price =  document.getElementById('price').value;
     productName.trim();
 
-    // console.log(id,productName,price);
     // validation for duplicate product id
     if(productId.includes(id)){
         alert('Duplicate entry!!!!');
