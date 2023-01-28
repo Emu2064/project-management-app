@@ -6,9 +6,31 @@ body{
 font-family: 'Roboto', sans-serif;
 }
 
+/* form style */
+.info-form{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+.info-form fieldset{
+    padding: 40px 40px;
+}
+
+.info-form fieldset div input{
+    height: 30px;
+    width: 50%;
+    /* text-align: center; */
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.info-form fieldset div input{
+    padding-left: 10px;
+}
+
 .buttons{
     display: flex;
-    justify-content: center; 
+    justify-content:flex-start; 
 }
 /* .add-btn{
     display: flex;
@@ -25,6 +47,7 @@ font-family: 'Roboto', sans-serif;
     width: 100px;
     font-weight: 800;
     cursor: pointer;
+    margin-left: 50px;
 }
 
 /* style sheet for table */
@@ -75,4 +98,8 @@ font-family: 'Roboto', sans-serif;
 /* style sheet for edit section */
 #edit-btn{
     display: none;
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

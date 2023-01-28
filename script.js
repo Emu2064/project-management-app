@@ -1,3 +1,11 @@
+function findItem(currentId) {
+  const singleItem = item.find(function (idx) {
+    return idx.pid === currentId;
+  });
+  return singleItem;
+  console.log(singleItem.productName);
+}
+
 // edit item
 function editItem() {
   //   console.log("it's working");
@@ -6,9 +14,15 @@ function editItem() {
   table.addEventListener("click", function (event) {
     if (event.target.classList.contains("edit-item")) {
       const currentItem = event.target.parentNode.parentNode;
-      //   console.log(currentItem.childNodes[0].innerHTML);
-      //   console.log(currentItem.childNodes[1].innerHTML);
-      //   console.log(currentItem.childNodes[2].innerHTML);
+
+      const currentId = currentItem.childNodes[0].innerHTML;
+      const currentProduct = findItem(currentId);
+
+      document.getElementById("id").value = currentId;
+      document.getElementById("product-name").value =
+        currentProduct.productName;
+      document.getElementById("price").value = currentProduct.price;
+
       document
         .getElementById("edit-btn")
         .addEventListener("click", function () {
@@ -51,6 +65,8 @@ function deleteItem() {
   });
 }
 
+const item = [];
+
 function addItem(id, name, price) {
   const singleItem = document.getElementById("product-item");
   const child = document.createElement("tr");
@@ -67,6 +83,12 @@ function addItem(id, name, price) {
     '<button class = "delete-btn" onclick="deleteItem()">Delete</button>' +
     "</td>";
   singleItem.appendChild(child);
+  item.push({
+    pid: id,
+    productName: name,
+    price: price,
+  });
+  // console.log(item);
 }
 
 const productId = [];
@@ -76,6 +98,10 @@ function getInputValue() {
   const price = document.getElementById("price").value;
   productName.trim();
 
+  if (id === "" || productName === "" || price === "") {
+    alert("Input field can't be empty");
+    return;
+  }
   // validation for duplicate product id
   if (productId.includes(id)) {
     document.getElementById("id").setAttribute("style", "border:3px solid red");
